@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "157150601297",
+    "project_id": "solve-it-gdsc",
+    "storage_bucket": "solve-it-gdsc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157150601297:android:a762bb56977f216a08d870",
+        "android_client_info": {
+          "package_name": "com.example.solveit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157150601297-57djje8f3jjd1ipncs396mgl9u6gfnv4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX7w9tOwsqLNpUNEfN1NxQdUoAxalLThM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157150601297-57djje8f3jjd1ipncs396mgl9u6gfnv4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
