@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>292963527549-6d0rervv5kvobl51jhdu4valnjb3tur7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.292963527549-6d0rervv5kvobl51jhdu4valnjb3tur7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBmVR1nNKUcvH3B69EgklJUJnS54BuZc9c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>292963527549</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.microhack</string>
+	<key>PROJECT_ID</key>
+	<string>microhack-usthb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>microhack-usthb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:292963527549:ios:fa45f29204c60b6593fa14</string>
+</dict>
+</plist>
