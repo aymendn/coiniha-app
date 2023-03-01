@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.solveit">
+    package="com.example.microhack">
    <application
-        android:label="solveit"
+        android:label="microhack"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
