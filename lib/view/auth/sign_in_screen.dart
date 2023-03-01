@@ -25,6 +25,12 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     final ValueNotifier<bool> isGoogleLoading = useState(false);
     final ValueNotifier<bool> obscureText = useState(true);
 
+    // formKey using hooks and useMemoized
+    final GlobalKey<FormState> formKey = useMemoized(
+      () => GlobalKey<FormState>(),
+      [context],
+    );
+
     Future<void> signInWithGoogle() async {
       isGoogleLoading.value = true;
       await AuthRepository.signInWithGoogle(
