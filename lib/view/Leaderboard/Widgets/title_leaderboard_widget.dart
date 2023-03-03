@@ -31,7 +31,7 @@ class TitleLeaderBoardWidget extends StatelessWidget {
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: 14,
+              fontSize: 15,
             )),
         SizedBox(width: 20)
       ]),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CardLeader extends StatelessWidget {
-   CardLeader({super.key, required this.index});
+  CardLeader({super.key, required this.index});
   int index;
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class CardLeader extends StatelessWidget {
         color: const Color(0xffA99F9F).withOpacity(0.25),
       ),
       child: Column(
-        children:  [
+        children: [
           Badge(
             backgroundColor: const Color(0xff7355FF),
             textColor: Colors.white,
