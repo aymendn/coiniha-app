@@ -1,56 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:microhack/view/auth/steps.dart';
 import 'package:microhack/view/shared/custom_button.dart';
 
-import 'steps.dart';
+import '../../providers/onboarding.dart';
+import 'page_item.dart';
 
 class OnboardingScreen extends HookConsumerWidget {
   const OnboardingScreen({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final ValueNotifier<int> currentStep = useState(0);
+    final PageController pageController = usePageController();
+
+    void onStepChanged() {
+      if (currentStep.value < 2) {
+        pageController.animateToPage(
+          currentStep.value + 1,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      } else {
+        ref.read(onboardingProvider.notifier).setOnboarding(false);
+      }
+    }
+
     return Scaffold(
       body: Column(
         children: [
           Expanded(
-            child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
-              child: Container(color: Colors.red),
+            child: PageView(
+              controller: pageController,
+              onPageChanged: (index) => currentStep.value = index,
+              children: const [
+                PageItem(currentSteps: 0),
+                PageItem(currentSteps: 1),
+                PageItem(currentSteps: 2),
+              ],
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
-              child: Column(
-                children: [
-                  const Text(
-                    'Receive gifts while having fun',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 12),
-                  const Text(
-                    style: TextStyle(fontSize: 16, color: Colors.grey),
-                    textAlign: TextAlign.center,
-                    'We were always exposed to the same parts oof our country as a community, we forget that there is truly more to Algeria than beaches.',
-                  ),
-                  const SizedBox(height: 12),
-                  const Steps(
-                    currentSteps: 0,
-                    stepsCount: 3,
-                  ),
-                  const Spacer(),
-                  CustomButton(
-                    onPressed: () {},
-                    text: 'Sign in with Google',
-                  ),
-                ],
-              ),
+          Steps(
+            currentSteps: currentStep.value,
+            stepsCount: 3,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
+            child: CustomButton(
+              onPressed: onStepChanged,
+              text: currentStep.value < 2 ? 'Next' : 'Get Started',
             ),
           ),
         ],

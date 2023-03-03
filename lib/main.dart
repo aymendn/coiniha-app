@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:microhack/models/user_data.dart';
 import 'package:microhack/providers/auth.dart';
+import 'package:microhack/providers/shared_preferences.dart';
 import 'package:microhack/repositories/firestore.dart';
 import 'package:microhack/view/auth/onboarding_screen.dart';
+import 'package:microhack/view/auth/sign_in_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'core/app_color.dart';
+import 'providers/onboarding.dart';
 import 'view/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -15,6 +19,8 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  final prefs = await SharedPreferences.getInstance();
 
   final userId = FirebaseAuth.instance.currentUser?.uid;
 
@@ -27,6 +33,7 @@ Future<void> main() async {
   runApp(
     ProviderScope(
       overrides: [
+        sharedPreferencesProvider.overrideWithValue(prefs),
         authProvider.overrideWith((ref) => AuthNotifier(userData)),
       ],
       child: const MicroHackApp(),
@@ -40,6 +47,7 @@ class MicroHackApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final auth = FirebaseAuth.instance;
+    final isFirstTime = ref.watch(onboardingProvider);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MicroHack',
@@ -51,22 +59,24 @@ class MicroHackApp extends ConsumerWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
       ),
-      home: StreamBuilder(
-        stream: auth.authStateChanges(),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.connectionState == ConnectionState.active) {
-            if (auth.currentUser != null) {
-              return const HomeScreen();
-            }
-            return const OnboardingScreen();
-          }
-          return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(),
+      home: isFirstTime
+          ? const OnboardingScreen()
+          : StreamBuilder(
+              stream: auth.authStateChanges(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (snapshot.connectionState == ConnectionState.active) {
+                  if (auth.currentUser != null) {
+                    return const HomeScreen();
+                  }
+                  return const SignInScreen();
+                }
+                return const Scaffold(
+                  body: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              },
             ),
-          );
-        },
-      ),
     );
   }
 }
