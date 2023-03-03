@@ -4,6 +4,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:microhack/providers/auth.dart';
 
 import '../../core/app_methods.dart';
+import '../shared/custom_button.dart';
+import '../shared/custom_text_form_field.dart';
 
 class SignInScreen extends StatefulHookConsumerWidget {
   const SignInScreen({super.key});
@@ -89,8 +91,11 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     final String toggleString =
         isSignIn.value ? 'Create an account' : 'Sign In';
 
+    final String questionString =
+        isSignIn.value ? 'Don\'t have an account?' : 'Already have an account?';
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Sign In')),
+      appBar: AppBar(title: Text(buttonString)),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -99,65 +104,85 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                if (!isSignIn.value)
-                  TextFormField(
+                AnimatedContainer(
+                  constraints: BoxConstraints(
+                    maxHeight: isSignIn.value ? 0 : 80,
+                  ),
+                  duration: const Duration(milliseconds: 300),
+                  child: CustomTextFormField(
                     controller: name,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Name',
-                    ),
+                    label: 'Name',
                     validator: isSignIn.value ? AppMethod.nameValidator : null,
                   ),
+                ),
                 const SizedBox(height: 16),
-                TextFormField(
+                CustomTextFormField(
                   controller: email,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Email',
-                  ),
+                  label: 'Email',
                   validator: AppMethod.emailValidator,
                 ),
                 const SizedBox(height: 16),
-                TextFormField(
+                CustomTextFormField(
                   controller: password,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Password',
-                  ),
+                  label: 'Password',
                   validator: AppMethod.passwordValidator,
+                  obscureText: true,
                 ),
-                const SizedBox(height: 16),
-                FilledButton(
-                  style: FilledButton.styleFrom(
-                    fixedSize: const Size.fromHeight(60),
-                    padding: const EdgeInsets.all(10),
-                  ),
+                const SizedBox(height: 24),
+                CustomButton(
                   onPressed: onFormSubmitted,
                   child: isLoading.value
                       ? const CircularProgressIndicator(color: Colors.white)
-                      : Text(buttonString),
+                      : Text(
+                          buttonString,
+                          style: const TextStyle(fontSize: 17),
+                        ),
                 ),
-                const SizedBox(height: 16),
-                TextButton(
-                  onPressed: toggleFormType,
-                  child: isLoading.value
-                      ? const CircularProgressIndicator(color: Colors.white)
-                      : Text(toggleString),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(questionString),
+                    TextButton(
+                      onPressed: toggleFormType,
+                      child: Text(
+                        toggleString,
+                        textAlign: TextAlign.end,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 16),
-          FilledButton(
-            style: FilledButton.styleFrom(
-              fixedSize: const Size.fromHeight(60),
-              backgroundColor: Colors.red,
-              padding: const EdgeInsets.all(10),
-            ),
+          const SizedBox(height: 8),
+          Row(
+            children: const [
+              Expanded(child: Divider()),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                child: Text('OR'),
+              ),
+              Expanded(child: Divider()),
+            ],
+          ),
+          const SizedBox(height: 24),
+          CustomButton(
             onPressed: signInWithGoogle,
+            color: Colors.transparent,
+            borderColor: Colors.grey
             child: isGoogleLoading.value
                 ? const CircularProgressIndicator(color: Colors.white)
-                : const Text('Sign In With Google'),
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.person),
+                      SizedBox(width: 8),
+                      Text(
+                        'Sign In With Google',
+                        style: TextStyle(fontSize: 17),
+                      ),
+                    ],
+                  ),
           ),
         ],
       ),
