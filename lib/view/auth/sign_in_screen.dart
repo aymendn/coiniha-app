@@ -5,8 +5,6 @@ import 'package:microhack/providers/auth.dart';
 
 import '../../core/app_methods.dart';
 
-// sign in screen using hooks and riverpod
-
 class SignInScreen extends StatefulHookConsumerWidget {
   const SignInScreen({super.key});
 
@@ -23,7 +21,8 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     final TextEditingController password = useTextEditingController();
     final ValueNotifier<bool> isLoading = useState(false);
     final ValueNotifier<bool> isGoogleLoading = useState(false);
-    final ValueNotifier<bool> obscureText = useState(true);
+    // final ValueNotifier<bool> obscureText = useState(true);
+    final auth = ref.read(authProvider.notifier);
 
     // formKey using hooks and useMemoized
     final GlobalKey<FormState> formKey = useMemoized(
@@ -33,7 +32,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
 
     Future<void> signInWithGoogle() async {
       isGoogleLoading.value = true;
-      await AuthRepository.signInWithGoogle(
+      await auth.signInWithGoogle(
         onError: (error) {
           AppMethod.showPopUp(
             context: context,
@@ -42,13 +41,13 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
           );
         },
       );
-      isGoogleLoading.value = false;
+     if(mounted) isGoogleLoading.value = false;
     }
 
     Future<void> onFormSubmitted() async {
       if (formKey.currentState!.validate()) {
         isLoading.value = true;
-        await AuthRepository.signInWithEmail(
+        await auth.signInWithEmail(
           email: email.text,
           password: password.text,
           onError: (error) {

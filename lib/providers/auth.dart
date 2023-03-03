@@ -1,50 +1,36 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:microhack/models/user_data.dart';
+import 'package:microhack/repositories/auth.dart';
 
-class AuthRepository {
-  const AuthRepository._();
+import '../repositories/firestore.dart';
 
-  static final FirebaseAuth auth = FirebaseAuth.instance;
+final authProvider =
+    StateNotifierProvider<AuthNotifier, UserData?>((ref) => AuthNotifier());
 
-  static User? get user => auth.currentUser;
+class AuthNotifier extends StateNotifier<UserData?> {
+  AuthNotifier([UserData? userData]) : super(userData);
 
-  static Stream<User?> get authStateChanges => auth.authStateChanges();
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  User? get user => auth.currentUser;
+  UserData? get userData => state;
+  bool get isAuth => user != null;
+  String get id => user!.uid;
 
-  static bool get isAuth => user != null;
+  void update(UserData? userData) => state = userData;
 
-  static Future<void> signInWithGoogle({
-    required Function(String) onError,
-  }) async {
-    try {
-      GoogleSignIn googleSignIn = GoogleSignIn();
-
-      GoogleSignInAccount? googleUser = await googleSignIn.signIn();
-
-      if (googleUser != null) {
-        GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-
-        final credential = GoogleAuthProvider.credential(
-          accessToken: googleAuth.accessToken,
-          idToken: googleAuth.idToken,
-        );
-
-        await auth.signInWithCredential(credential);
-      }
-    } catch (error) {
-      onError(error.toString());
-    }
-  }
-
-  static Future<void> signInWithEmail({
+  Future<void> signInWithEmail({
     required String email,
     required String password,
     required Function(String) onError,
   }) async {
     try {
-      await auth.signInWithEmailAndPassword(
+      await AuthRepository.signInWithEmail(
         email: email,
         password: password,
       );
+
+      state = await FirestoreRepository.getUserData(id);
     } on FirebaseAuthException catch (error) {
       onError(error.message!);
     } catch (error) {
@@ -52,17 +38,46 @@ class AuthRepository {
     }
   }
 
-  static Future<void> signUpWithEmail({
-    required String email,
-    required String password,
+  Future<void> signInWithGoogle({
+    required Function(String) onError,
   }) async {
-    await auth.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+    try {
+      await AuthRepository.signInWithGoogle();
+      state = await FirestoreRepository.getUserData(id);
+
+    } on FirebaseAuthException catch (error) {
+      onError(error.message!);
+    } catch (error) {
+      onError(error.toString());
+    }
   }
 
-  static Future<void> signOut() async {
-    await auth.signOut();
+  Future<void> signUpWithEmail({
+    required String email,
+    required String password,
+    required Function(String) onError,
+  }) async {
+    try {
+      await AuthRepository.signUpWithEmail(
+        email: email,
+        password: password,
+      );
+
+      await FirestoreRepository.addUser(id);
+    } on FirebaseAuthException catch (error) {
+      onError(error.message!);
+    } catch (error) {
+      onError(error.toString());
+    }
+  }
+
+  Future<void> signOut({required Function(String) onError}) async {
+    try {
+      await AuthRepository.signOut();
+    } on FirebaseAuthException catch (error) {
+      onError(error.message!);
+    } catch (error) {
+      onError(error.toString());
+    }
   }
 }
