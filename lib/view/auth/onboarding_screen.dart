@@ -48,7 +48,12 @@ class OnboardingScreen extends HookConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
             child: CustomButton(
               onPressed: onStepChanged,
-              text: currentStep.value < 2 ? 'Next' : 'Get Started',
+              child: Text(
+                currentStep.value < 2 ? 'Next' : 'Get Started',
+                style: const TextStyle(
+                  fontSize: 17,
+                ),
+              ),
             ),
           ),
         ],
