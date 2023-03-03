@@ -5,6 +5,7 @@ import 'package:microhack/models/user_data.dart';
 import 'package:microhack/providers/auth.dart';
 import 'package:microhack/providers/shared_preferences.dart';
 import 'package:microhack/repositories/firestore.dart';
+import 'package:microhack/view/Leaderboard/leaderboard.dart';
 import 'package:microhack/view/auth/onboarding_screen.dart';
 import 'package:microhack/view/auth/sign_in_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -68,7 +69,7 @@ class MicroHackApp extends ConsumerWidget {
                   if (auth.currentUser != null) {
                     return const HomeScreen();
                   }
-                  return const SignInScreen();
+                  return const LeaderBoardScreen();
                 }
                 return const Scaffold(
                   body: Center(
