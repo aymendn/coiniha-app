@@ -23,6 +23,7 @@ class FirestoreRepository {
       final data = snapshot.data() as Map<String, dynamic>;
       return UserData(score: data['score'] ?? 0);
     } catch (error) {
+      await addUser(id);
       return UserData.empty();
     }
   }

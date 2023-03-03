@@ -32,6 +32,9 @@ migrate_working_dir/
 .pub/
 /build/
 
+# ignore build folder
+build/
+
 # Symbolication related
 app.*.symbols
 
@@ -42,3 +45,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar
+build/c075001b96339384a97db4862b8ab8db.cache.dill.track.dill
+build/app/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar
+build/app/intermediates/assets/debug/mergeDebugAssets/flutter_assets/NOTICES.Z
+build/app/intermediates/assets/debug/mergeDebugAssets/flutter_assets/kernel_blob.bin

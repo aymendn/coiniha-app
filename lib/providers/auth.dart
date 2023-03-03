@@ -55,12 +55,14 @@ class AuthNotifier extends StateNotifier<UserData?> {
   Future<void> signUpWithEmail({
     required String email,
     required String password,
+    required String name,
     required Function(String) onError,
   }) async {
     try {
       await AuthRepository.signUpWithEmail(
         email: email,
         password: password,
+        name:  name,
       );
 
       await FirestoreRepository.addUser(id);

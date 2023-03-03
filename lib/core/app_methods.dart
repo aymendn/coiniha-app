@@ -23,6 +23,16 @@ class AppMethod {
     return null;
   }
 
+  static String? nameValidator(String? name) {
+    if (name == null || name.isEmpty) {
+      return 'Name is required';
+    }
+    if (name.length < 3) {
+      return 'Name must be at least 3 characters';
+    }
+    return null;
+  }
+
   static showPopUp({
     required BuildContext context,
     String? title,

@@ -4,7 +4,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:microhack/models/user_data.dart';
 import 'package:microhack/providers/auth.dart';
 import 'package:microhack/repositories/firestore.dart';
-import 'package:microhack/view/auth/sign_in_screen.dart';
+import 'package:microhack/view/auth/onboarding_screen.dart';
+import 'core/app_color.dart';
 import 'view/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -43,7 +44,11 @@ class MicroHackApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       title: 'MicroHack',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        fontFamily: 'baloo2',
+        brightness: Brightness.dark,
+        primarySwatch: Colors.purple,
+        primaryColor: AppColor.primary,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
       ),
       home: StreamBuilder(
@@ -53,7 +58,7 @@ class MicroHackApp extends ConsumerWidget {
             if (auth.currentUser != null) {
               return const HomeScreen();
             }
-            return const SignInScreen();
+            return const OnboardingScreen();
           }
           return const Scaffold(
             body: Center(

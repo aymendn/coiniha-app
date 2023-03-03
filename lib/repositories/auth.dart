@@ -20,11 +20,15 @@ class AuthRepository {
   static Future<void> signUpWithEmail({
     required String email,
     required String password,
+    String? name,
   }) async {
     await auth.createUserWithEmailAndPassword(
       email: email,
       password: password,
+      
     );
+
+    if(name != null) await auth.currentUser!.updateDisplayName(name);
   }
 
   static Future<void> signInWithGoogle() async {

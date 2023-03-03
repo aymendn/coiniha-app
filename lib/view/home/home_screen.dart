@@ -23,7 +23,7 @@ class HomeScreen extends ConsumerWidget {
       );
     }
 
-    final int score = user!.score;
+    final int score = user?.score ?? 0;
 
     return Scaffold(
       appBar: AppBar(
