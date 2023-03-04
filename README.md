@@ -1,13 +1,13 @@
 <h1 align="center">Coiniha - Get rewards for answering surveys</h1>
 <p align="center">
-<img width="100" src="assets/images/logo.svg" alt="Coiniha">
+<img width="100" src="logo-filled.png" alt="Coiniha">
 </p>
 <p align="center">
 COINIHA is a mobile application that provides the user with a set of fun interactive surveys, quizzes, and personality tests, for the purpose of collecting data from a wide range of audiences across the country. The app will generate revenue through the sale of data.
 </p>
 <hr>
 
-<h1 align="center">⬇ Download App</h1>
+<h1 align="center" href="https://raw.githubusercontent.com/aymendn/coiniha-app/main/apk/app-release.apk">⬇ Download App</h1>
 
 ## ⛔ Problem: 
 
