@@ -14,7 +14,7 @@ class HomeScreen extends ConsumerWidget {
           title: const Text(
             'COINIHA',
             style: TextStyle(
-              color: Color(0xff7355FF),
+              color: AppColor.primary,
               fontWeight: FontWeight.bold,
               fontSize: 40,
             ),
@@ -41,7 +41,7 @@ class HomeScreen extends ConsumerWidget {
                     TextSpan(
                         text: 'approved',
                         style: TextStyle(
-                          color: Color(0xff6D4EFF),
+                          color: AppColor.primary,
                           fontWeight: FontWeight.bold,
                           fontSize: 23,
                         )),
@@ -120,8 +120,7 @@ class HomeScreen extends ConsumerWidget {
                     minimumSize: const Size(double.infinity, 50),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16))),
-                onPressed: () {
-                },
+                onPressed: () {},
                 child: const Text(
                   "Copy Invite Link",
                   style: TextStyle(

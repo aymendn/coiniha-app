@@ -27,7 +27,7 @@ class Nav extends HookConsumerWidget {
         child: BottomNavigationBar(
           currentIndex: currentIndex.value,
           onTap: (index) {
-            if (index == 2) return;
+            if (index == 2) Navigator.of(context).pushNamed('/surveys');
             currentIndex.value = index;
           },
           selectedItemColor: AppColor.primary,
@@ -59,27 +59,27 @@ class Nav extends HookConsumerWidget {
           ],
         ),
       ),
-      floatingActionButton: Transform(
-        transform: Matrix4.translationValues(0, 35, 0),
-        child: Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: AppColor.primary.withOpacity(0.6),
-                spreadRadius: 3,
-                blurRadius: 15,
-                offset: const Offset(0, 0),
-              ),
-            ],
-          ),
-          child: FloatingActionButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed('/surveys');
-            },
-            shape: const CircleBorder(),
-            backgroundColor: AppColor.primary,
-            child: const Icon(Icons.add),
+      floatingActionButton: IgnorePointer(
+        child: Transform(
+          transform: Matrix4.translationValues(0, 35, 0),
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColor.primary.withOpacity(0.6),
+                  spreadRadius: 3,
+                  blurRadius: 15,
+                  offset: const Offset(0, 0),
+                ),
+              ],
+            ),
+            child: FloatingActionButton(
+              onPressed: () {},
+              shape: const CircleBorder(),
+              backgroundColor: AppColor.primary,
+              child: const Icon(Icons.add),
+            ),
           ),
         ),
       ),

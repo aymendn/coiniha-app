@@ -13,7 +13,7 @@ class SurveyNotifier extends ChangeNotifier {
   List<Survey> surveys = [...AppData.surveys];
   String? currentSurveyId;
   int? currentQuestionIndex;
-  bool? isSurveyCompleted;
+  bool isSurveyCompleted = false;
 
   double get progress {
     if (currentSurveyId == null) return 0;
@@ -78,7 +78,7 @@ class SurveyNotifier extends ChangeNotifier {
   void endSurvey() {
     currentSurveyId = null;
     currentQuestionIndex = null;
-    isSurveyCompleted = null;
+    isSurveyCompleted = false;
     notifyListeners();
   }
 }
