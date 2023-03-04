@@ -46,7 +46,7 @@ class StartScreen extends ConsumerWidget {
             CustomButton(
               child: const Text('Get Started!'),
               onPressed: () {
-                Navigator.of(context).pushNamed('/survey');
+                Navigator.of(context).pushReplacementNamed('/survey');
               },
             ),
           ],

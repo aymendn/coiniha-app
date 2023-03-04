@@ -74,30 +74,13 @@ class ResultScreen extends HookConsumerWidget {
               title: const Text('Curious for more?'),
               subtitle: const Text('Take similar surveys'),
               trailing: const Icon(Icons.question_mark),
+              onTap: () {
+                pageController.nextPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                );
+              },
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              FilledButton(
-                onPressed: () {
-                  pageController.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  );
-                },
-                style: FilledButton.styleFrom(
-                  backgroundColor: Colors.white30,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                    vertical: 16,
-                  ),
-                  elevation: 0,
-                ),
-                child: const Icon(Icons.arrow_forward),
-              ),
-            ],
           ),
         ],
       ),

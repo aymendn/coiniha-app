@@ -6,7 +6,8 @@ import '../shared/custom_button.dart';
 
 class ShopCard extends StatelessWidget {
   const ShopCard({
-    super.key, required this.product,
+    super.key,
+    required this.product,
   });
 
   final Product product;
@@ -25,23 +26,22 @@ class ShopCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child:  Image(
+            child: Image(
               fit: BoxFit.cover,
               image: AssetImage(product.imageUrl),
             ),
           ),
           const SizedBox(height: 9),
-         Text(
-            '${product.title}',
+          Text(
+            product.title,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
               fontSize: 16,
-            
             ),
           ),
-           Text(
+          Text(
             '${product.price} Coins',
             style: const TextStyle(
               color: AppColor.secondary,
@@ -57,7 +57,6 @@ class ShopCard extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (context) {
-                    // return a dialog saying that the purchase was successful
                     return AlertDialog(
                       title: const Text(
                         'Purchase Successful!',
