@@ -42,6 +42,9 @@ dependencies:
   flutter_hooks: ^0.18.6
   cloud_firestore: ^4.4.3
   shared_preferences: ^2.0.18
+  custom_navigation_bar: ^0.8.2
+  persistent_bottom_nav_bar: ^5.0.2
+
 
 dev_dependencies:
   flutter_test:
@@ -65,10 +68,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/fares.jpg
+    - assets/images/image_35.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
