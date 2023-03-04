@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:microhack/core/app_color.dart';
+import 'package:microhack/core/app_constant.dart';
 import 'package:microhack/view/Leaderboard/leaderboard.dart';
 import 'package:microhack/view/Profile/profile_screen.dart';
 import 'package:microhack/view/Shop/shop.dart';
@@ -35,25 +37,45 @@ class Nav extends HookConsumerWidget {
           backgroundColor: const Color(0xff20232D),
           type: BottomNavigationBarType.fixed,
           elevation: 0,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
+              icon: SvgPicture.asset(
+                AppConstant.homeIcon,
+                color: currentIndex.value == 0
+                    ? AppColor.primary
+                    : const Color(0xff7D848D),
+              ),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined),
+              icon: SvgPicture.asset(
+                AppConstant.storeIcon,
+                color: currentIndex.value == 1
+                    ? AppColor.primary
+                    : const Color(0xff7D848D),
+              ),
               label: 'Shop',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: SizedBox.shrink(),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.leaderboard_outlined),
+              icon: SvgPicture.asset(
+                AppConstant.rankIcon,
+                color: currentIndex.value == 3
+                    ? AppColor.primary
+                    : const Color(0xff7D848D),
+              ),
               label: 'Rank',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
+              icon: SvgPicture.asset(
+                AppConstant.profileIcon,
+                color: currentIndex.value == 4
+                    ? AppColor.primary
+                    : const Color(0xff7D848D),
+              ),
               label: 'Profile',
             ),
           ],
@@ -78,7 +100,9 @@ class Nav extends HookConsumerWidget {
               onPressed: () {},
               shape: const CircleBorder(),
               backgroundColor: AppColor.primary,
-              child: const Icon(Icons.add),
+              child: SvgPicture.asset(
+                AppConstant.logo,
+              ),
             ),
           ),
         ),

@@ -44,6 +44,7 @@ dependencies:
   shared_preferences: ^2.0.18
   custom_navigation_bar: ^0.8.2
   persistent_bottom_nav_bar: ^5.0.2
+  flutter_svg: ^2.0.2
 
 
 dev_dependencies:
