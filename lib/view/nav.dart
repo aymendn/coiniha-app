@@ -54,7 +54,7 @@ class Nav extends HookConsumerWidget {
                     ? AppColor.primary
                     : const Color(0xff7D848D),
               ),
-              label: 'Shop',
+              label: 'Exchange',
             ),
             const BottomNavigationBarItem(
               icon: SizedBox.shrink(),

@@ -8,12 +8,14 @@ class CustomButton extends StatelessWidget {
     this.onPressed,
     this.color = AppColor.primary,
     this.borderColor,
+    this.height = 60,
   });
 
   final Widget child;
   final VoidCallback? onPressed;
   final Color color;
   final Color? borderColor;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class CustomButton extends StatelessWidget {
       style: FilledButton.styleFrom(
         backgroundColor: color,
         foregroundColor: borderColor ?? AppColor.white,
-        minimumSize: const Size.fromHeight(60),
+        minimumSize: Size.fromHeight(height),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),

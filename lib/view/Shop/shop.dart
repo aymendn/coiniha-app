@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:microhack/core/app_color.dart';
-import 'package:microhack/view/Leaderboard/Widgets/custom_arrow.dart';
 import 'package:microhack/view/Shop/shop_widgets.dart';
 
 class ShopScreen extends StatelessWidget {
@@ -10,32 +9,25 @@ class ShopScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: Row(
-            // ignore: prefer_const_literals_to_create_immutables
-            children: [
-              const SizedBox(width: 10),
-              const CustomArrowButton(),
-            ],
-          ),
           leadingWidth: 100,
           title: const Text(
-            'Shop',
+            'Exchange',
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
               fontSize: 23,
             ),
           ),
-          centerTitle: true,
           actions: const [
             Text(
-              '343 Coins    ',
+              '343 Coins',
               style: TextStyle(
                 color: AppColor.secondary,
                 fontWeight: FontWeight.w600,
                 fontSize: 17,
               ),
             ),
+            SizedBox(width: 10),
           ],
         ),
         body: Padding(
