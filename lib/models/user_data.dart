@@ -6,7 +6,7 @@ class UserData {
     required this.score,
     String? displayName,
     String? email,
-    String? photoURL ,
+    String? photoURL,
   }) {
     _name = displayName;
     _email = email;
@@ -18,10 +18,10 @@ class UserData {
   String? _photoURL;
 
   final auth = FirebaseAuth.instance;
-  String? get uid =>  _name != null ? " "  : auth.currentUser?.uid ;
-  String? get email => _email!= null ? _email :  auth.currentUser?.email;
-  String? get displayName => _name != null ? _name: auth.currentUser?.displayName;
-  String? get photoURL => _photoURL  != null? _photoURL: auth.currentUser?.photoURL;
+  String? get uid => _name != null ? " " : auth.currentUser?.uid;
+  String? get email => _email ?? auth.currentUser?.email;
+  String? get displayName => _name ?? auth.currentUser?.displayName;
+  String? get photoURL => _photoURL ?? auth.currentUser?.photoURL;
 
   factory UserData.empty() => UserData(score: 0);
 }

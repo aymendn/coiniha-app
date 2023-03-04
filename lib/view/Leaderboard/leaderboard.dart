@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:microhack/core/app_data.dart';
-import 'package:microhack/models/user_data.dart';
 import 'package:microhack/view/Leaderboard/Widgets/card_leader.dart';
-import 'package:microhack/view/Leaderboard/Widgets/custom_arrow.dart';
 import 'package:microhack/view/Leaderboard/Widgets/rank_widget.dart';
 import 'package:microhack/view/Leaderboard/Widgets/title_leaderboard_widget.dart';
 

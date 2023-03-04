@@ -1,6 +1,6 @@
 <h1 align="center">Coiniha - Get rewards for answering surveys</h1>
 <p align="center">
-<img width="200" src="assets/images/logo.svg" alt="Coiniha">
+<img width="100" src="assets/images/logo.svg" alt="Coiniha">
 </p>
 <p align="center">
 COINIHA is a mobile application that provides the user with a set of fun interactive surveys, quizzes, and personality tests, for the purpose of collecting data from a wide range of audiences across the country. The app will generate revenue through the sale of data.
@@ -9,7 +9,7 @@ COINIHA is a mobile application that provides the user with a set of fun interac
 
 <h1 align="center">⬇ Download App</h1>
 
-## ⛔Problem: 
+## ⛔ Problem: 
 
 The problem that we tackled concerning this challenge is the lack of accessibility and availability of users’ data, which ends up harming digital entrepreneurship in Algeria eventually.
 
@@ -17,6 +17,6 @@ The problem that we tackled concerning this challenge is the lack of accessibili
 
 Our main goal with this project is to make the local Algerian user’s data available for analytics and data scientists or AI models for digital businesses and entrepreneurs that are planning to improve their product or their services and therefore their profitability .
 
-## 💡Solution: 
+## 💡 Solution: 
 
 As a solution we suggested a mobile application that targets users’ data through quizzes, surveys and tests ,and sells it to enterprises .And spread the app through a good affiliate program.
