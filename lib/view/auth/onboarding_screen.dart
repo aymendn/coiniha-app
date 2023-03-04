@@ -34,9 +34,9 @@ class OnboardingScreen extends HookConsumerWidget {
               controller: pageController,
               onPageChanged: (index) => currentStep.value = index,
               children: const [
-                PageItem(currentSteps: 0),
-                PageItem(currentSteps: 1),
-                PageItem(currentSteps: 2),
+                PageItem(currentSteps: 0, imageurl: "assets/images/UI/2.png"),
+                PageItem(currentSteps: 1, imageurl: "assets/images/UI/1.png"),
+                PageItem(currentSteps: 2, imageurl: "assets/images/UI/3.png"),
               ],
             ),
           ),
