@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class CardLeader extends StatelessWidget {
   const CardLeader({super.key, required this.index});
-  final  int index;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-      padding: const EdgeInsets.symmetric(horizontal: 12.4, vertical: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 0),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(19),
+        borderRadius: BorderRadius.circular(20),
         color: const Color(0xffA99F9F).withOpacity(0.25),
       ),
       child: Column(

@@ -8,57 +8,44 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final auth = ref.read(authProvider.notifier);
-    // final user = ref.watch(authProvider);
-    // Future<void> signOut() async {
-    //   await auth.signOut(
-    //     onError: (error) {
-    //       AppMethod.showPopUp(
-    //         context: context,
-    //         title: 'Sign Out Error',
-    //         content: error,
-    //       );
-    //     },
-    //   );
-    // }
-
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text('Coiniha',
-              style: TextStyle(
-                color: Color(0xff7355FF),
-                fontWeight: FontWeight.bold,
-                fontSize: 39,
-              )),
+          title: const Text(
+            'COINIHA',
+            style: TextStyle(
+              color: Color(0xff7355FF),
+              fontWeight: FontWeight.bold,
+              fontSize: 40,
+            ),
+          ),
         ),
-        body: Padding(
+        body: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(children: [
-            Center(
-              child: Container(
-                padding: const EdgeInsets.all(25),
-                decoration: BoxDecoration(
-                    color: const Color(0xff272A34),
-                    borderRadius: BorderRadius.circular(20)),
-                child: RichText(
-                  text: const TextSpan(
-                    text: 'your daily checkin has been ',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 23,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: 'approved',
-                          style: TextStyle(
-                            color: Color(0xff6D4EFF),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 23,
-                          )),
-                    ],
+          children: [
+            Container(
+              padding: const EdgeInsets.all(25),
+              decoration: BoxDecoration(
+                  color: const Color(0xff272A34),
+                  borderRadius: BorderRadius.circular(20)),
+              child: RichText(
+                text: const TextSpan(
+                  text: 'your daily checkin has been ',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 23,
+                    fontFamily: 'baloo2',
                   ),
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: 'approved',
+                        style: TextStyle(
+                          color: Color(0xff6D4EFF),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 23,
+                        )),
+                  ],
                 ),
               ),
             ),
@@ -133,7 +120,8 @@ class HomeScreen extends ConsumerWidget {
                     minimumSize: const Size(double.infinity, 50),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16))),
-                onPressed: () {},
+                onPressed: () {
+                },
                 child: const Text(
                   "Copy Invite Link",
                   style: TextStyle(
@@ -142,7 +130,7 @@ class HomeScreen extends ConsumerWidget {
                     fontSize: 18,
                   ),
                 ))
-          ]),
+          ],
         ));
   }
 }

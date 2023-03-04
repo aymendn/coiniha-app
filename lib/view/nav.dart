@@ -74,7 +74,9 @@ class Nav extends HookConsumerWidget {
             ],
           ),
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed('/surveys');
+            },
             shape: const CircleBorder(),
             backgroundColor: AppColor.primary,
             child: const Icon(Icons.add),

@@ -14,27 +14,26 @@ class LeaderBoardScreen extends StatefulWidget {
 class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Rank',
-            style: TextStyle(
-              color: Color(0xff7355FF),
-              fontWeight: FontWeight.bold,
-              fontSize: 23,
-            )),
+        title: const Text(
+          'Rank',
+          style: TextStyle(
+            color: Color(0xff7355FF),
+            fontWeight: FontWeight.bold,
+            fontSize: 23,
+          ),
+        ),
         centerTitle: true,
         leading: const CustomArrowButton(),
       ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(
-            size.width * 0.03, size.height * 0.01, size.width * 0.03, 0),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Column(
                   children: const [
                     SizedBox(
                       height: 20,
@@ -42,7 +41,9 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
                     CardLeader(index: 2),
                   ],
                 ),
-                Column(
+              ),
+              Expanded(
+                child: Column(
                   children: const [
                     CardLeader(index: 1),
                     SizedBox(
@@ -50,7 +51,9 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
                     )
                   ],
                 ),
-                Column(
+              ),
+              Expanded(
+                child: Column(
                   children: const [
                     SizedBox(
                       height: 50,
@@ -58,25 +61,24 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
                     CardLeader(index: 3),
                   ],
                 ),
-              ],
+              ),
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 2, vertical: 20),
+            child: TitleLeaderBoardWidget(),
+          ),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: 21,
+              itemBuilder: (_, int index) {
+                if (index < 4) return const SizedBox.shrink();
+                return RankWidget(index: index);
+              },
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 2, vertical: 20),
-              child: TitleLeaderBoardWidget(),
-            ),
-            Expanded(
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 21,
-                  itemBuilder: (_, int index) {
-                    if (index < 4) {
-                      return Container();
-                    }
-                    return RankWidget(index: index);
-                  }),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
