@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:microhack/core/app_color.dart';
+import 'package:microhack/core/app_data.dart';
+import 'package:microhack/view/Leaderboard/Widgets/custom_arrow.dart';
 import 'package:microhack/view/Shop/shop_widgets.dart';
 
 class ShopScreen extends StatelessWidget {
@@ -45,15 +47,19 @@ class ShopScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Expanded(
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (ctx, index) {
-                      return Row(children: const [
-                        Expanded(child: ShopCard()),
-                        Expanded(child: ShopCard())
-                      ]);
-                    }),
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  itemCount: AppData.products.length,
+                  itemBuilder: (context, index) {
+                    return ShopCard(
+                      product: AppData.products[index],
+                    );
+                  },
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 0.6),
+                ),
               ),
             ],
           ),

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:microhack/models/product.dart';
 
 import '../../core/app_color.dart';
 import '../shared/custom_button.dart';
 
 class ShopCard extends StatelessWidget {
   const ShopCard({
-    super.key,
+    super.key, required this.product,
   });
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -22,23 +25,25 @@ class ShopCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: const Image(
+            child:  Image(
               fit: BoxFit.cover,
-              image: AssetImage("assets/images/image_35.png"),
+              image: AssetImage(product.imageUrl),
             ),
           ),
           const SizedBox(height: 9),
-          const Text(
-            'COINIHA T-SHIRT  ',
-            style: TextStyle(
+         Text(
+            '${product.title}',
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
               fontSize: 16,
+            
             ),
           ),
-          const Text(
-            '100 Coins',
-            style: TextStyle(
+           Text(
+            '${product.price} Coins',
+            style: const TextStyle(
               color: AppColor.secondary,
               fontWeight: FontWeight.bold,
               fontSize: 15,
