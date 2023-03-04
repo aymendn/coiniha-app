@@ -71,6 +71,10 @@ flutter:
   assets:
     - assets/images/fares.jpg
     - assets/images/image_35.png
+    - assets/images/UI/1.png
+    - assets/images/UI/2.png
+    - assets/images/UI/3.png
+    - assets/images/arrow.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
