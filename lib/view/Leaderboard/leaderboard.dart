@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:microhack/core/app_data.dart';
+import 'package:microhack/models/user_data.dart';
 import 'package:microhack/view/Leaderboard/Widgets/card_leader.dart';
 import 'package:microhack/view/Leaderboard/Widgets/custom_arrow.dart';
 import 'package:microhack/view/Leaderboard/Widgets/rank_widget.dart';
@@ -12,6 +14,14 @@ class LeaderBoardScreen extends StatefulWidget {
 }
 
 class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
+  // order this list by score
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    AppData.users.sort((a, b) => b.score.compareTo(a.score));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,32 +31,31 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
           style: TextStyle(
             color: Color(0xff7355FF),
             fontWeight: FontWeight.bold,
-            fontSize: 23,
+            fontSize: 33,
           ),
         ),
         centerTitle: true,
-        leading: const CustomArrowButton(),
       ),
       body: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Expanded(
                 child: Column(
-                  children: const [
-                    SizedBox(
+                  children: [
+                    const SizedBox(
                       height: 20,
                     ),
-                    CardLeader(index: 2),
+                    CardLeader(index: 2, user: AppData.users[1]),
                   ],
                 ),
               ),
               Expanded(
                 child: Column(
-                  children: const [
-                    CardLeader(index: 1),
-                    SizedBox(
+                  children: [
+                    CardLeader(index: 1, user: AppData.users[0]),
+                    const SizedBox(
                       height: 20,
                     )
                   ],
@@ -54,11 +63,11 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
               ),
               Expanded(
                 child: Column(
-                  children: const [
-                    SizedBox(
+                  children: [
+                    const SizedBox(
                       height: 50,
                     ),
-                    CardLeader(index: 3),
+                    CardLeader(index: 3, user: AppData.users[2]),
                   ],
                 ),
               ),
@@ -71,10 +80,13 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
           Expanded(
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: 21,
+              itemCount: AppData.users.length,
               itemBuilder: (_, int index) {
                 if (index < 4) return const SizedBox.shrink();
-                return RankWidget(index: index);
+                return RankWidget(
+                  index: index,
+                  user: AppData.users[index],
+                );
               },
             ),
           )

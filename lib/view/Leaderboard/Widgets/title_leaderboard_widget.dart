@@ -33,7 +33,7 @@ class TitleLeaderBoardWidget extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 15,
             )),
-        SizedBox(width: 20)
+        SizedBox(width: 5)
       ]),
     );
   }

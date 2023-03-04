@@ -1,5 +1,6 @@
 import 'package:microhack/models/product.dart';
 import 'package:microhack/models/survey.dart';
+import 'package:microhack/models/user_data.dart';
 
 import '../models/question.dart';
 
@@ -138,6 +139,75 @@ class AppData {
       title: 'Ooredo Stickers',
       price: 30,
       imageUrl: 'assets/images/image_35.png',
+    ),
+  ];
+
+  static final List<UserData> users = [
+    UserData(
+      score: 100,
+      displayName: "Aymen",
+      email: "test@dsadas",
+      photoURL: "assets/images/image_35.png",
+    ),
+    UserData(
+      score: 700,
+      displayName: "Fares",
+      email: "test@dsadas",
+      photoURL: "assets/images/image_35.png",
+    ),
+    UserData(
+      score: 500,
+      displayName: "Yasser",
+      email: "test@dsadas",
+      photoURL: "assets/images/image_35.png",
+    ),
+    UserData(
+      score: 400,
+      displayName: "Abdelbasset",
+      email: "test@dsadas",
+      photoURL: "assets/images/image_35.png",
+    ),
+    UserData(
+      score: 200,
+      displayName: "Ahmed",
+      email: "test@dsadas",
+      photoURL: "assets/images/image_35.png",
+    ),
+    UserData(
+      score: 450,
+      displayName: "Moh",
+      email: "test@dsadas",
+      photoURL: "assets/images/image_35.png",
+    ),
+    UserData(
+      score: 94,
+      displayName: "Rafik",
+      email: "test@dsadas",
+      photoURL: "assets/images/image_35.png",
+    ),
+    UserData(
+      score: 80,
+      displayName: "Walid",
+      email: "test@dsadas",
+      photoURL: "assets/images/image_35.png",
+    ),
+    UserData(
+      score: 60,
+      displayName: "Djamel",
+      email: "test@dsadas",
+      photoURL: "assets/images/image_35.png",
+    ),
+    UserData(
+      score: 79,
+      displayName: "Lyes",
+      email: "test@dsadas",
+      photoURL: "assets/images/image_35.png",
+    ),
+    UserData(
+      score: 419,
+      displayName: "abdelhak",
+      email: "test@dsadas",
+      photoURL: "assets/images/image_35.png",
     ),
   ];
 }

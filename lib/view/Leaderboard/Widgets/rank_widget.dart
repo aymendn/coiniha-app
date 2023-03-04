@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:microhack/models/user_data.dart';
 
 class RankWidget extends StatelessWidget {
-  const RankWidget({required this.index, super.key});
+  const RankWidget({required this.index, super.key, required this.user});
   final int index;
+  final UserData user;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class RankWidget extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-              horizontal: size.width * 0.02, vertical: size.height * 0.01),
+              horizontal: size.width * 0.04, vertical: size.height * 0.01),
           child: Row(
             children: [
               Text("#$index",
@@ -25,22 +27,22 @@ class RankWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   )),
-              SizedBox(width: size.width * 0.02),
+              SizedBox(width: size.width * 0.06),
               const CircleAvatar(
-                radius: 20,
+                radius: 16,
                 backgroundColor: Colors.white,
               ),
               SizedBox(width: size.width * 0.02),
-              const Text("Fares Bekkouche",
-                  style: TextStyle(
+              Text(user.displayName as String,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 17,
                     height: 2,
                   )),
               const Spacer(),
-              const Text("1032 Coins",
-                  style: TextStyle(
+              Text(user.score.toString(),
+                  style: const TextStyle(
                     color: Color(0xffFF6584),
                     fontWeight: FontWeight.bold,
                     fontSize: 14.6,
