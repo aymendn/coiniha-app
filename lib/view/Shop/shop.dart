@@ -57,9 +57,9 @@ class ShopScreen extends StatelessWidget {
                     shrinkWrap: true,
                     itemCount: 10,
                     itemBuilder: (ctx, index) {
-                      return Row(children: [
-                        const Expanded(child: ShopCard()),
-                        const Expanded(child: ShopCard())
+                      return Row(children: const [
+                        Expanded(child: ShopCard()),
+                        Expanded(child: ShopCard())
                       ]);
                     }),
               ),

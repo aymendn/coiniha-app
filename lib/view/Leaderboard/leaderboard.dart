@@ -32,6 +32,7 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   children: const [
@@ -77,12 +78,6 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
           ],
         ),
       ),
-
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

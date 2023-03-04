@@ -6,15 +6,17 @@ class RankWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(19),
           color: const Color(0xffA99F9F).withOpacity(0.25),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: EdgeInsets.symmetric(
+              horizontal: size.width * 0.02, vertical: size.height * 0.01),
           child: Row(
             children: [
               Text("#$index",
@@ -23,12 +25,12 @@ class RankWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   )),
-              const SizedBox(width: 10),
+              SizedBox(width: size.width * 0.02),
               const CircleAvatar(
                 radius: 20,
                 backgroundColor: Colors.white,
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: size.width * 0.02),
               const Text("Fares Bekkouche",
                   style: TextStyle(
                     color: Colors.white,
@@ -43,7 +45,7 @@ class RankWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 14.6,
                   )),
-              const SizedBox(width: 2),
+              SizedBox(width: size.width * 0.005),
             ],
           ),
         ),
