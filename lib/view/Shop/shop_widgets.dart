@@ -10,13 +10,8 @@ class ShopCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-      padding: const EdgeInsets.only(
-        top: 10,
-        left: 10,
-        right: 10,
-        bottom: 0,
-      ),
+      margin: const EdgeInsets.all(5),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         border: Border.all(color: AppColor.white.withOpacity(.25), width: 2),
         borderRadius: BorderRadius.circular(20),
@@ -32,7 +27,7 @@ class ShopCard extends StatelessWidget {
           ),
           const SizedBox(height: 9),
           const Text(
-            'COINIHA T-SHIRT',
+            'COINIHA T-SHIRT  ',
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
@@ -40,16 +35,21 @@ class ShopCard extends StatelessWidget {
             ),
           ),
           const Text(
-            '100 Coins',
+            '100 Coins                  ',
             style: TextStyle(
               color: AppColor.secondary,
-              fontWeight: FontWeight.w300,
-              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              fontSize: 15,
             ),
           ),
-          const SizedBox(height: 13),
+          const SizedBox(height: 6),
           FilledButton(
-              style: FilledButton.styleFrom(backgroundColor: AppColor.primary),
+              style: FilledButton.styleFrom(
+                backgroundColor: AppColor.primary,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16)),
+                minimumSize: const Size(140, 40),
+              ),
               onPressed: () {},
               child: const Text(
                 "Purshase",
