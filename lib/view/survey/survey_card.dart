@@ -79,7 +79,7 @@ class SurveyCard extends ConsumerWidget {
                             ref
                                 .read(surveyProvider.notifier)
                                 .startSurvey(survey.id);
-                            Navigator.of(context).pushNamed('/survey');
+                            Navigator.of(context).pushNamed('/start');
                           },
                     child: Text(survey.isDone ? 'Done' : 'Start'),
                   ),

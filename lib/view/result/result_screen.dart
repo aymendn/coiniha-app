@@ -42,12 +42,13 @@ class ResultScreen extends HookConsumerWidget {
                   const SizedBox(height: 8),
                   const Text(
                     style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                     textAlign: TextAlign.center,
                     'you are always taking refuge in your own head ,You are a great planner and You can predict things before they happen .You have a great skill but You have to live in the moment sometimes.',
                   ),
+                  const SizedBox(height: 16),
+                  Image.asset('assets/images/thinker.png'),
                 ],
               ),
             ),
@@ -73,30 +74,13 @@ class ResultScreen extends HookConsumerWidget {
               title: const Text('Curious for more?'),
               subtitle: const Text('Take similar surveys'),
               trailing: const Icon(Icons.question_mark),
+              onTap: () {
+                pageController.nextPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                );
+              },
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              FilledButton(
-                onPressed: () {
-                  pageController.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  );
-                },
-                style: FilledButton.styleFrom(
-                  backgroundColor: Colors.white30,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                    vertical: 16,
-                  ),
-                  elevation: 0,
-                ),
-                child: const Icon(Icons.arrow_forward),
-              ),
-            ],
           ),
         ],
       ),
@@ -124,9 +108,9 @@ class ResultScreen extends HookConsumerWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('result')),
+      appBar: AppBar(title: const Text('Result')),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(8),
         child: PageView(
           controller: pageController,
           physics: const NeverScrollableScrollPhysics(),
