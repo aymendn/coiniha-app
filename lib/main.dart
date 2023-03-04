@@ -7,6 +7,9 @@ import 'package:microhack/providers/shared_preferences.dart';
 import 'package:microhack/repositories/firestore.dart';
 import 'package:microhack/view/auth/onboarding_screen.dart';
 import 'package:microhack/view/auth/sign_in_screen.dart';
+import 'package:microhack/view/result/result_screen.dart';
+import 'package:microhack/view/survey/survey_screen.dart';
+import 'package:microhack/view/survey/surveys_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'core/app_color.dart';
 import 'providers/onboarding.dart';
@@ -59,6 +62,11 @@ class MicroHackApp extends ConsumerWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
       ),
+      routes: {
+        '/surveys': (context) => const SurveysScreen(),
+        '/survey': (context) => const SurveyScreen(),
+        '/result': (context) => const ResultScreen(),
+      },
       home: isFirstTime
           ? const OnboardingScreen()
           : StreamBuilder(

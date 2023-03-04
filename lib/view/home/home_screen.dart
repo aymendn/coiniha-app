@@ -38,6 +38,10 @@ class HomeScreen extends ConsumerWidget {
             onPressed: signOut,
             child: const Text('Sign Out'),
           ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pushNamed('/surveys'),
+            child: const Text('Surveys'),
+          ),
         ],
       ),
     );

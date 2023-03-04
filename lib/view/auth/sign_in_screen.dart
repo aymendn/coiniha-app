@@ -169,7 +169,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
           CustomButton(
             onPressed: signInWithGoogle,
             color: Colors.transparent,
-            borderColor: Colors.grey
+            borderColor: Colors.grey,
             child: isGoogleLoading.value
                 ? const CircularProgressIndicator(color: Colors.white)
                 : Row(
