@@ -39,12 +39,13 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 children: <TextSpan>[
                   TextSpan(
-                      text: 'approved',
-                      style: TextStyle(
-                        color: Color(0xff6D4EFF),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 23,
-                      )),
+                    text: 'approved',
+                    style: TextStyle(
+                      color: Color(0xff6D4EFF),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 23,
+                    ),
+                  ),
                 ],
               ),
             ),
