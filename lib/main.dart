@@ -80,7 +80,7 @@ class MicroHackApp extends ConsumerWidget {
                   if (auth.currentUser != null) {
                     return const Nav();
                   }
-                  return const ShopScreen();
+                  return const SignInScreen();
                 }
                 return const Scaffold(
                   body: Center(
