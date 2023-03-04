@@ -7,7 +7,7 @@ COINIHA is a mobile application that provides the user with a set of fun interac
 </p>
 <hr>
 
-<h1 align="center" href="https://raw.githubusercontent.com/aymendn/coiniha-app/main/apk/app-release.apk">⬇ Download App</h1>
+<h1 align="center"><a  href="https://raw.githubusercontent.com/aymendn/coiniha-app/main/apk/app-release.apk">⬇ Download App</a></h1>
 
 ## ⛔ Problem: 
 
