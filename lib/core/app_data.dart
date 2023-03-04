@@ -1,3 +1,4 @@
+import 'package:microhack/models/product.dart';
 import 'package:microhack/models/survey.dart';
 
 import '../models/question.dart';
@@ -93,6 +94,50 @@ class AppData {
       ],
       coins: 100,
       createdAt: DateTime.now().subtract(const Duration(days: 5)),
+    ),
+  ];
+
+  static final List<Product> products = [
+    Product(
+      id: '1',
+      title: 'COINIHA T-Shirt',
+      price: 30,
+      imageUrl: 'assets/images/image_35.png',
+    ),
+    Product(
+        id: '2',
+        title: 'COINIHA Cap',
+        price: 20,
+        imageUrl: 'assets/images/image_35.png'),
+    Product(
+      id: '3',
+      title: 'COINIHA Stickers',
+      price: 10,
+      imageUrl: 'assets/images/image_35.png',
+    ),
+    Product(
+      id: '4',
+      title: 'COINIHA Mystery Box',
+      price: 99,
+      imageUrl: 'assets/images/image_35.png',
+    ),
+    Product(
+      id: '5',
+      title: 'Djezzy T-Shirt',
+      price: 100,
+      imageUrl: 'assets/images/image_35.png',
+    ),
+    Product(
+      id: '6',
+      title: 'Djezzy Cap',
+      price: 50,
+      imageUrl: 'assets/images/image_35.png',
+    ),
+    Product(
+      id: '7',
+      title: 'Ooredo Stickers',
+      price: 30,
+      imageUrl: 'assets/images/image_35.png',
     ),
   ];
 }
