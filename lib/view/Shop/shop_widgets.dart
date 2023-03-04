@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:microhack/models/product.dart';
 
 import '../../core/app_color.dart';
+import '../shared/custom_button.dart';
 
 class ShopCard extends StatelessWidget {
   const ShopCard({
@@ -20,6 +21,7 @@ class ShopCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
@@ -48,22 +50,39 @@ class ShopCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 6),
-          FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: AppColor.primary,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16)),
-                minimumSize: const Size(140, 40),
-              ),
-              onPressed: () {},
-              child: const Text(
-                "Purshase",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 14,
-                ),
-              ))
+          Center(
+            child: CustomButton(
+              height: 42,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    // return a dialog saying that the purchase was successful
+                    return AlertDialog(
+                      title: const Text(
+                        'Purchase Successful!',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      content: const Text(
+                          'You have successfully purchased the item'),
+                      actions: [
+                        CustomButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          height: 50,
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              child: const Text('Purchase'),
+            ),
+          ),
         ],
       ),
     );
