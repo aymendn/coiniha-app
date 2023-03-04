@@ -10,6 +10,7 @@ class ShopCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.fromLTRB(5, 5, 5, 5),
       padding: const EdgeInsets.only(
         top: 10,
         left: 10,

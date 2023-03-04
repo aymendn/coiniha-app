@@ -53,18 +53,14 @@ class ShopScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Expanded(
-                child: GridView.builder(
+                child: ListView.builder(
                     shrinkWrap: true,
-                    itemCount: 20,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 20,
-                      childAspectRatio: 0.6,
-                    ),
+                    itemCount: 10,
                     itemBuilder: (ctx, index) {
-                      return const ShopCard();
+                      return Row(children: [
+                        const Expanded(child: ShopCard()),
+                        const Expanded(child: ShopCard())
+                      ]);
                     }),
               ),
             ],
