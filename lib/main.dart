@@ -5,11 +5,7 @@ import 'package:microhack/models/user_data.dart';
 import 'package:microhack/providers/auth.dart';
 import 'package:microhack/providers/shared_preferences.dart';
 import 'package:microhack/repositories/firestore.dart';
-import 'package:microhack/view/Leaderboard/leaderboard.dart';
-import 'package:microhack/view/Profile/profile_screen.dart';
-import 'package:microhack/view/Shop/shop.dart';
 import 'package:microhack/view/auth/onboarding_screen.dart';
-import 'package:microhack/view/auth/sign_in_screen.dart';
 import 'package:microhack/view/home/home_screen.dart';
 import 'package:microhack/view/nav.dart';
 import 'package:microhack/view/result/result_screen.dart';
@@ -20,6 +16,7 @@ import 'core/app_color.dart';
 import 'providers/onboarding.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'view/survey/start_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -70,6 +67,7 @@ class MicroHackApp extends ConsumerWidget {
         '/surveys': (context) => const SurveysScreen(),
         '/survey': (context) => const SurveyScreen(),
         '/result': (context) => const ResultScreen(),
+        '/start': (context) => const StartScreen(),
       },
       home: isFirstTime
           ? const OnboardingScreen()

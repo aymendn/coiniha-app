@@ -42,12 +42,13 @@ class ResultScreen extends HookConsumerWidget {
                   const SizedBox(height: 8),
                   const Text(
                     style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                     textAlign: TextAlign.center,
                     'you are always taking refuge in your own head ,You are a great planner and You can predict things before they happen .You have a great skill but You have to live in the moment sometimes.',
                   ),
+                  const SizedBox(height: 16),
+                  Image.asset('assets/images/thinker.png'),
                 ],
               ),
             ),
@@ -124,9 +125,9 @@ class ResultScreen extends HookConsumerWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('result')),
+      appBar: AppBar(title: const Text('Result')),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(8),
         child: PageView(
           controller: pageController,
           physics: const NeverScrollableScrollPhysics(),

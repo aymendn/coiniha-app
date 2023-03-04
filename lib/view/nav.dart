@@ -29,7 +29,10 @@ class Nav extends HookConsumerWidget {
         child: BottomNavigationBar(
           currentIndex: currentIndex.value,
           onTap: (index) {
-            if (index == 2) Navigator.of(context).pushNamed('/surveys');
+            if (index == 2) {
+              Navigator.of(context).pushNamed('/surveys');
+              return;
+            }
             currentIndex.value = index;
           },
           selectedItemColor: AppColor.primary,

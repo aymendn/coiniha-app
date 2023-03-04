@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:microhack/core/app_color.dart';
 import 'package:microhack/view/home/widgets/home_card.dart';
@@ -116,7 +117,35 @@ class HomeScreen extends ConsumerWidget {
               ),
             ],
           ),
-          const CopyWidget(),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      const Expanded(
+                        child: Text(
+                          'Looks like that some coins\nare waiting for you ...',
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      SvgPicture.asset(
+                        'assets/images/logo.svg',
+                        height: 40,
+                        width: 40,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  const CopyWidget(),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -139,12 +168,14 @@ class _CopyWidgetState extends State<CopyWidget> {
     String txt = isCopying ? "Copied!" : "Copy Invite Link";
     return FilledButton(
       style: FilledButton.styleFrom(
-          backgroundColor: isCopying
-              ? const Color.fromARGB(255, 73, 41, 212)
-              : AppColor.primary,
-          minimumSize: const Size(double.infinity, 50),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))),
+        backgroundColor: isCopying
+            ? const Color.fromARGB(255, 73, 41, 212)
+            : AppColor.primary,
+        minimumSize: const Size(double.infinity, 50),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
       onPressed: () async {
         setState(() {
           isCopying = true;
