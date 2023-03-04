@@ -1,16 +1,22 @@
-# microhack
+<h1 align="center">Coiniha - Get rewards for answering surveys</h1>
+<p align="center">
+<img width="200" src="assets/images/logo.svg" alt="Coiniha">
+</p>
+<p align="center">
+COINIHA is a mobile application that provides the user with a set of fun interactive surveys, quizzes, and personality tests, for the purpose of collecting data from a wide range of audiences across the country. The app will generate revenue through the sale of data.
+</p>
+<hr>
 
-A new Flutter project.
+<h1 align="center">⬇ Download App</h1>
 
-## Getting Started
+## ⛔Problem: 
 
-This project is a starting point for a Flutter application.
+The problem that we tackled concerning this challenge is the lack of accessibility and availability of users’ data, which ends up harming digital entrepreneurship in Algeria eventually.
 
-A few resources to get you started if this is your first Flutter project:
+## 🎯 Main goal : 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Our main goal with this project is to make the local Algerian user’s data available for analytics and data scientists or AI models for digital businesses and entrepreneurs that are planning to improve their product or their services and therefore their profitability .
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 💡Solution: 
+
+As a solution we suggested a mobile application that targets users’ data through quizzes, surveys and tests ,and sells it to enterprises .And spread the app through a good affiliate program.
