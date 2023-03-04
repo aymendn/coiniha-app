@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:microhack/view/Leaderboard/Widgets/custom_arrow.dart';
 
 class ProfileScreen extends StatefulWidget {
-  ProfileScreen({super.key});
+  const ProfileScreen({super.key});
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final int _selectedindex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,26 +49,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: ListView(
           shrinkWrap: true,
           children: [
-            CircleAvatar(
-              backgroundImage: const AssetImage("assets/images/fares.jpg"
-        
-
-              ),
+            const CircleAvatar(
+              backgroundImage: AssetImage("assets/images/fares.jpg"),
               radius: 50,
             ),
             Column(
-              children: [
-                const Text("Fares",
+              children: const [
+                Text("Fares",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
                     )),
-                const SizedBox(
+                SizedBox(
                   height: 1,
                   width: double.infinity,
                 ),
-                const Text("f_bekkouche@estin.dz",
+                Text("f_bekkouche@estin.dz",
                     style: TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.w200,
@@ -108,7 +103,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   borderRadius: BorderRadius.circular(23),
                 ),
                 child: Column(
-                  children: [
+                  children: const [
                     OptionSettings(),
                     Divider(
                       color: Colors.grey,

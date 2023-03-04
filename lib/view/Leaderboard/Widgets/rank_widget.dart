@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RankWidget extends StatelessWidget {
-  RankWidget({required this.index, super.key});
-  int index;
+  const RankWidget({required this.index, super.key});
+  final int index;
 
   @override
   Widget build(BuildContext context) {

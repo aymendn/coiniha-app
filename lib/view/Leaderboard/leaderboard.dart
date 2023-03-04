@@ -12,7 +12,6 @@ class LeaderBoardScreen extends StatefulWidget {
 }
 
 class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
-  int _selectedindex = 0;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -34,18 +33,16 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
           children: [
             Row(
               children: [
-                Container(
-                  child: Column(
-                    children: [
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      CardLeader(index: 2),
-                    ],
-                  ),
+                Column(
+                  children: const [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    CardLeader(index: 2),
+                  ],
                 ),
                 Column(
-                  children: [
+                  children: const [
                     CardLeader(index: 1),
                     SizedBox(
                       height: 20,
@@ -53,8 +50,8 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
                   ],
                 ),
                 Column(
-                  children: [
-                    const SizedBox(
+                  children: const [
+                    SizedBox(
                       height: 50,
                     ),
                     CardLeader(index: 3),
@@ -86,8 +83,6 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      
-  // give me a 5 items navigation bar with a floating action  button on the middle of it ?
     );
   }
 }

@@ -5,15 +5,15 @@ import 'package:microhack/models/user_data.dart';
 import 'package:microhack/providers/auth.dart';
 import 'package:microhack/providers/shared_preferences.dart';
 import 'package:microhack/repositories/firestore.dart';
-import 'package:microhack/view/Profile/profile_screen.dart';
 import 'package:microhack/view/auth/onboarding_screen.dart';
+import 'package:microhack/view/auth/sign_in_screen.dart';
+import 'package:microhack/view/nav.dart';
 import 'package:microhack/view/result/result_screen.dart';
 import 'package:microhack/view/survey/survey_screen.dart';
 import 'package:microhack/view/survey/surveys_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'core/app_color.dart';
 import 'providers/onboarding.dart';
-import 'view/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -74,9 +74,9 @@ class MicroHackApp extends ConsumerWidget {
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 if (snapshot.connectionState == ConnectionState.active) {
                   if (auth.currentUser != null) {
-                    return const HomeScreen();
+                    return const Nav();
                   }
-                  return ProfileScreen();
+                  return const SignInScreen();
                 }
                 return const Scaffold(
                   body: Center(

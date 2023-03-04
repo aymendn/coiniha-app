@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CardLeader extends StatelessWidget {
-  CardLeader({super.key, required this.index});
-  int index;
+  const CardLeader({super.key, required this.index});
+  final  int index;
   @override
   Widget build(BuildContext context) {
     return Container(
